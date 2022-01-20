@@ -1,6 +1,7 @@
 from scrapy import Item, Field
 
 
-class ScrapyindeedItem(Item):
-    # name = Field()
-    pass
+class JobItem(Item):
+    position = Field()
+    company = Field()
+    pay = Field()
