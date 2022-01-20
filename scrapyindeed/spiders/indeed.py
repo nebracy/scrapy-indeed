@@ -6,7 +6,7 @@ from scrapy.spiders import CrawlSpider, Rule
 class IndeedSpider(CrawlSpider):
     name = 'indeed'
     allowed_domains = ['indeed.com']
-    start_urls = ['http://indeed.com/']
+    start_urls = ['https://www.indeed.com/jobs?q=tech%20support&l=Remote&jt=fulltime&fromage=1']
 
     rules = (
         Rule(LinkExtractor(allow=r'Items/'), callback='parse_item', follow=True),
