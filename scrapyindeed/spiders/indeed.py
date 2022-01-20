@@ -20,6 +20,7 @@ class IndeedSpider(CrawlSpider):
         return item
 
 
-process = CrawlerProcess()
-process.crawl(IndeedSpider)
-process.start()
+if __name__ == "__main__":
+    process = CrawlerProcess()
+    process.crawl(IndeedSpider)
+    process.start()
