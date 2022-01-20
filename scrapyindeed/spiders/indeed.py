@@ -1,4 +1,4 @@
-import scrapy
+from scrapy.crawler import CrawlerProcess
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
 
@@ -18,3 +18,8 @@ class IndeedSpider(CrawlSpider):
         #item['name'] = response.xpath('//div[@id="name"]').get()
         #item['description'] = response.xpath('//div[@id="description"]').get()
         return item
+
+
+process = CrawlerProcess()
+process.crawl(IndeedSpider)
+process.start()
