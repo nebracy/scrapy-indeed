@@ -1,6 +1,7 @@
 from scrapy.crawler import CrawlerProcess
 from scrapy.linkextractors import LinkExtractor
 from scrapy.spiders import CrawlSpider, Rule
+from scrapyindeed.items import JobItem
 
 
 class IndeedSpider(CrawlSpider):
@@ -13,11 +14,10 @@ class IndeedSpider(CrawlSpider):
     )
 
     def parse_item(self, response):
-        item = {}
-        #item['domain_id'] = response.xpath('//input[@id="sid"]/@value').get()
-        #item['name'] = response.xpath('//div[@id="name"]').get()
-        #item['description'] = response.xpath('//div[@id="description"]').get()
-        return item
+        item = JobItem()
+        for job in response.css('div.job_seen_beacon'):
+            item['position'] = job.css('span::attr(title)').get()
+            yield item
 
 
 if __name__ == "__main__":
