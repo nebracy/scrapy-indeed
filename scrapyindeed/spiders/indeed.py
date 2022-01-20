@@ -10,7 +10,7 @@ class IndeedSpider(CrawlSpider):
     start_urls = ['https://www.indeed.com/jobs?q=tech%20support&l=Remote&jt=fulltime&fromage=1']
 
     rules = (
-        Rule(LinkExtractor(allow=r'Items/'), callback='parse_item', follow=True),
+        Rule(LinkExtractor(allow=r'&start=[0-9]+'), callback='parse_item', follow=True),
     )
 
     def parse_item(self, response):
