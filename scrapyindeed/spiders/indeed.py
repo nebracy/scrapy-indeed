@@ -1,19 +1,14 @@
 from scrapy.crawler import CrawlerProcess
-from scrapy.linkextractors import LinkExtractor
-from scrapy.spiders import CrawlSpider, Rule
+from scrapy.spiders import Spider
 from scrapyindeed.items import JobItem
 
 
-class IndeedSpider(CrawlSpider):
+class IndeedSpider(Spider):
     name = 'indeed'
     allowed_domains = ['indeed.com']
     start_urls = ['https://www.indeed.com/jobs?q=tech%20support&l=Remote&jt=fulltime&limit=50&fromage=1']
 
-    rules = (
-        Rule(LinkExtractor(allow=r'&start=[0-9]+'), callback='parse_item', follow=True),
-    )
-
-    def parse_item(self, response):
+    def parse(self, response):
         item = JobItem()
         for job in response.css('div.job_seen_beacon'):
             item['position'] = job.css('span::attr(title)').get()
