@@ -7,7 +7,7 @@ from scrapyindeed.items import JobItem
 class IndeedSpider(CrawlSpider):
     name = 'indeed'
     allowed_domains = ['indeed.com']
-    start_urls = ['https://www.indeed.com/jobs?q=tech%20support&l=Remote&jt=fulltime&fromage=1']
+    start_urls = ['https://www.indeed.com/jobs?q=tech%20support&l=Remote&jt=fulltime&limit=50&fromage=1']
 
     rules = (
         Rule(LinkExtractor(allow=r'&start=[0-9]+'), callback='parse_item', follow=True),
