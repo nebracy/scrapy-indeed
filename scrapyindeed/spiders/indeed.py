@@ -14,6 +14,14 @@ class IndeedSpider(Spider):
             item['url'] = response.urljoin(url)
             yield item
 
+    def parse_job(self, response):
+        # item = JobItem()
+        # item['position'] = response.css('').get()
+        # item['company'] = response.css('').get()
+        # item['pay'] = response.css('').get()
+        # yield item
+        pass
+
 
 if __name__ == "__main__":
     process = CrawlerProcess()
