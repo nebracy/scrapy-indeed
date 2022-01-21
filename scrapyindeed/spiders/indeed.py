@@ -10,8 +10,8 @@ class IndeedSpider(Spider):
 
     def parse(self, response):
         item = JobItem()
-        for job in response.css('div.job_seen_beacon'):
-            item['position'] = job.css('span::attr(title)').get()
+        for url in response.xpath('//a[contains(@class, "tapItem")]/@href').getall():
+            item['url'] = response.urljoin(url)
             yield item
 
 
