@@ -19,7 +19,7 @@ ROBOTSTXT_OBEY = True
 
 # See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay
 # See also autothrottle settings and docs
-DOWNLOAD_DELAY = 3
+DOWNLOAD_DELAY = 5
 
 DOWNLOAD_TIMEOUT = 30
 
