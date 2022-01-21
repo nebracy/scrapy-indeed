@@ -9,10 +9,8 @@ class IndeedSpider(Spider):
     start_urls = ['https://www.indeed.com/jobs?q=tech%20support&l=Remote&jt=fulltime&limit=50&fromage=1']
 
     def parse(self, response):
-        item = JobItem()
-        for url in response.xpath('//a[contains(@class, "tapItem")]/@href').getall():
-            item['url'] = response.urljoin(url)
-            yield item
+        job_urls = response.xpath('//a[contains(@class, "tapItem")]/@href')
+        yield from response.follow_all(job_urls, self.parse_job)
 
     def parse_job(self, response):
         # item = JobItem()
