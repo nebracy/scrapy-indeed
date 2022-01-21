@@ -20,6 +20,7 @@ class IndeedSpider(Spider):
         item = JobItem()
         item['title'] = response.css('h1::text').get()
         # item['company'] = response.css('').get()
+        # item['stars'] = response.css('').get()
         # item['pay'] = response.css('').get()
         yield item
 
