@@ -12,6 +12,10 @@ class IndeedSpider(Spider):
         job_urls = response.xpath('//a[contains(@class, "tapItem")]/@href')
         yield from response.follow_all(job_urls, self.parse_job)
 
+        # next_page = response.xpath('//a[@aria-label="Next"]/@href').get()
+        # if next_page is not None:
+        #     yield response.follow(next_page, self.parse)
+
     def parse_job(self, response):
         item = JobItem()
         item['position'] = response.css('h1::text').get()
