@@ -28,6 +28,7 @@ class IndeedSpider(Spider):
         item['company'] = response.xpath('//div[contains(@class, "jobsearch-InlineCompanyRating")]//text()').get()
         item['stars'] = response.xpath('//meta[@itemprop="ratingValue"]/@content').get()
         item['pay'] = response.xpath('//*[@id="jobDetailsSection"]/div[2]/span/text()').get()
+        item['url'] = response.url
         yield item
 
 
