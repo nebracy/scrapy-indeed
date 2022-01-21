@@ -2,7 +2,7 @@ from scrapy import Item, Field
 
 
 class JobItem(Item):
-    position = Field()
+    title = Field()
     company = Field()
     pay = Field()
     url = Field()

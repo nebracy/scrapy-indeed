@@ -18,7 +18,7 @@ class IndeedSpider(Spider):
 
     def parse_job(self, response):
         item = JobItem()
-        item['position'] = response.css('h1::text').get()
+        item['title'] = response.css('h1::text').get()
         # item['company'] = response.css('').get()
         # item['pay'] = response.css('').get()
         yield item
