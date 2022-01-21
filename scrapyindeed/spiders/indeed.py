@@ -26,7 +26,7 @@ class IndeedSpider(Spider):
         item = JobItem()
         item['title'] = response.xpath('//h1[contains(@class, "jobsearch-JobInfoHeader-title")]/text()').get()
         item['company'] = response.xpath('//div[contains(@class, "jobsearch-InlineCompanyRating")]//text()').get()
-        # item['stars'] = response.css('').get()
+        item['stars'] = response.xpath('//meta[@itemprop="ratingValue"]/@content').get()
         # item['pay'] = response.css('').get()
         yield item
 
