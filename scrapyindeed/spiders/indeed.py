@@ -24,7 +24,7 @@ class IndeedSpider(Spider):
 
     def parse_job(self, response):
         item = JobItem()
-        item['title'] = response.css('h1::text').get()
+        item['title'] = response.xpath('//h1[contains(@class, "jobsearch-JobInfoHeader-title")]/text()').get()
         # item['company'] = response.css('').get()
         # item['stars'] = response.css('').get()
         # item['pay'] = response.css('').get()
