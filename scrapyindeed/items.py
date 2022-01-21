@@ -6,4 +6,5 @@ class JobItem(Item):
     company = Field()
     stars = Field()
     pay = Field()
+    posted = Field()
     url = Field()
