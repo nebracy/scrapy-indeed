@@ -13,12 +13,11 @@ class IndeedSpider(Spider):
         yield from response.follow_all(job_urls, self.parse_job)
 
     def parse_job(self, response):
-        # item = JobItem()
-        # item['position'] = response.css('').get()
+        item = JobItem()
+        item['position'] = response.css('h1::text').get()
         # item['company'] = response.css('').get()
         # item['pay'] = response.css('').get()
-        # yield item
-        pass
+        yield item
 
 
 if __name__ == "__main__":
