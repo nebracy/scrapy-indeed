@@ -12,7 +12,7 @@ NEWSPIDER_MODULE = 'scrapyindeed.spiders'
 
 USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36'
 
-ROBOTSTXT_OBEY = True
+# ROBOTSTXT_OBEY = True
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
@@ -32,13 +32,13 @@ COOKIES_ENABLED = False
 # Disable Telnet Console (enabled by default)
 #TELNETCONSOLE_ENABLED = False
 
-DEFAULT_REQUEST_HEADERS = {
-    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-    'Accept-Encoding': 'gzip, deflate, br',
-    'Accept-Language': 'en-US,en;q=0.9',
-    'Referer': 'https://www.google.com/',
-    'Upgrade-Insecure-Requests': '1'
-}
+# DEFAULT_REQUEST_HEADERS = {
+#     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+#     'Accept-Encoding': 'gzip, deflate, br',
+#     'Accept-Language': 'en-US,en;q=0.9',
+#     'Referer': 'https://www.google.com/',
+#     'Upgrade-Insecure-Requests': '1'
+# }
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
