@@ -2,6 +2,7 @@ from scrapy import Request
 from scrapy.crawler import CrawlerProcess
 from scrapy.spiders import Spider
 from scrapyindeed.items import JobItem
+from scrapy.utils.project import get_project_settings
 
 
 class IndeedSpider(Spider):
@@ -34,6 +35,6 @@ class IndeedSpider(Spider):
 
 
 if __name__ == "__main__":
-    process = CrawlerProcess()
+    process = CrawlerProcess(get_project_settings())
     process.crawl(IndeedSpider)
     process.start()
